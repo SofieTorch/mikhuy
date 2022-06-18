@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'package:mikhuy/google_map_view.dart';
+import 'package:mikhuy/google_map_page.dart';
 import 'package:mikhuy/firebase_options.dart';
 
 void main() async {
