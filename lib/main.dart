@@ -1,8 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'package:mikhuy/google_map_page.dart';
 import 'package:mikhuy/firebase_options.dart';
+import 'package:mikhuy/home_page.dart';
+import 'package:mikhuy/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: GoogleMapPage(),
+      theme: AppTheme.light,
+      debugShowCheckedModeBanner: false,
+      home: const HomePage(),
     );
   }
 }
