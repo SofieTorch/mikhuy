@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mikhuy/models/models.dart';
 import 'package:mikhuy/seller_page.dart';
 
@@ -76,8 +75,7 @@ class _GoogleMapsView extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => SellerPage(e)),
               );
-            }
-            ))
+            }))
         .toSet();
   }
 }
