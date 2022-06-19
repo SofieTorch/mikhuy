@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mikhuy/models/models.dart';
+import 'package:mikhuy/seller_page.dart';
 
 class GoogleMapPage extends StatelessWidget {
   GoogleMapPage({Key? key}) : super(key: key);
@@ -63,18 +64,25 @@ class GoogleMapView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GoogleMap(
-      markers: _markers,
+      markers: _getmarkers(context),
       onMapCreated: _onMapCreated,
       initialCameraPosition: _initialPosition,
     );
   }
 
-  Set<Marker> get _markers {
+  Set<Marker> _getmarkers(BuildContext context) {
     return sellers
         .map((e) => Marker(
             markerId: MarkerId(e.id),
             position: LatLng(e.latitude, e.longitude),
-            infoWindow: InfoWindow(title: e.name)))
+            infoWindow: InfoWindow(title: e.name),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SellerPage(e)),
+              );
+            }
+            ))
         .toSet();
   }
 }
